@@ -7,6 +7,8 @@ Target Database: db_trans_00_web
 Date: 04/09/2017 06:25:11 p.m.
 */
 
+USE db_trans_00_web;
+
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for __control
