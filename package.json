@@ -1,0 +1,19 @@
+{
+  "name": "sintad",
+  "version": "1.0.0",
+  "description": "init file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "hapi": "^16.6.0",
+    "joi": "^11.0.1",
+    "mysql": "^2.14.1"
+  }
+}
