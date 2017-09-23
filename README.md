@@ -3,6 +3,9 @@
 1) Instalar NODE JS.
 https://nodejs.org/es/
 
+3) Instalar GULP JS.
+npm install gulp --global
+
 2) Abrir la consola del sistema y ubicarse en la carpeta del proyecto. Ejecutar el comando
 npm install
 
