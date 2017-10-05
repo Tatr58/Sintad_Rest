@@ -33,7 +33,7 @@ server.route({
     connection.query('SELECT usu.id_user, \
                       usu.id_empleado, \
                       usu.id_role, \
-                      CONCAT(emp.nombres, emp.paterno) as nombre \
+                      CONCAT(emp.nombres, " ",emp.paterno) as nombre \
                       FROM _user as usu INNER JOIN _empleado as emp \
                       ON usu.id_empleado = emp.id_empleado \
                       WHERE usu.user = "' + username + '" and usu.password = "' + pass_crypt + '"',
@@ -83,6 +83,40 @@ server.route({
       } 
     }
 });
+
+
+server.route({
+    method: 'GET',
+    path: '/service_order_deta/getRoute/{id_order}',
+    handler: function (request, reply) {
+    const id_order = request.params.id_order;
+
+    connection.query('SELECT \
+                    viaje, \
+                    lat_P, \
+                    lon_P, \
+                    depoNom_P, \
+                    lat_L, \
+                    lon_L, \
+                    depoNom_L \
+                    FROM \
+                    se_ordenservicio_deta  \
+                    WHERE \
+                    nro_orden = ?', [id_order],
+    function (error, results, fields) {
+       if (error) throw error;
+       reply(results);
+    });
+    },
+   config: {
+       validate: {
+        params: {
+        id_order: Joi.string().required(),
+        }
+      } 
+    }
+});
+
 
 server.start((err) => {
    if (err) {
